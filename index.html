@@ -1209,6 +1209,53 @@ data-styled.g509[id="sc-keyframes-hilmrT"]{content:"hilmrT,"}/*!sc*/</style>
 </div>
 </div>
 
+<!-- URL POSTBACK -->
+<script type="text/javascript">
+	function sendPostback(postbackUrl) {
+		let xhr = new XMLHttpRequest();
+		xhr.open('GET', postbackUrl, true);
+		xhr.send();
+	}
+
+	function getPostbackUrl() {
+		// Get the current URL
+		let currentUrl = window.location.href;
+
+		// Parse the query string of the URL
+		let searchParams = new URLSearchParams(currentUrl);
+
+		// Get the utm_click parameter from the query string
+		let utmClick = searchParams.get('utm_click');
+
+		// Return the postback URL with the utm_click parameter appended to it
+		return 'https://evadav.com/phpb?click_id=' + utmClick + '&payout=1';
+	}
+
+	// Get the button element with the specific class
+	let button_header = document.querySelector('.x__download');
+
+	// Attach a click event handler to the button
+	button_header.addEventListener('click', function() {
+		// Get the postback URL with the utm_click parameter
+		let postbackUrl = getPostbackUrl();
+
+		// Send the request to the postback URL
+		sendPostback(postbackUrl);
+	});
+	// Get the button element with the specific class
+	let button_center = document.querySelector('.x__button');
+
+	// Attach a click event handler to the button
+	button_center.addEventListener('click', function() {
+		// Get the postback URL with the utm_click parameter
+		let postbackUrl = getPostbackUrl();
+
+		// Send the request to the postback URL
+		sendPostback(postbackUrl);
+	});
+
+</script>
+
 
 <script src="/polyfill-0e2d61359efcb95481cd-v2.js" nomodule="">
 </script>
